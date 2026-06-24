@@ -1,14 +1,22 @@
+---
+// Import global styles so they apply to every page using this layout
+import "../styles/global.css"
+---
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Required meta tags for proper rendering and mobile responsiveness -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <!-- Favicon for browser tabs (SVG and fallback ICO) -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
+    <!-- Astro auto-generates a <meta name="generator"> tag -->
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>Jacob's Garden</title>
   </head>
   <body>
+    <!-- <slot /> renders whatever content is wrapped by this layout (the page content) -->
     <slot />
   </body>
 </html>
@@ -19,5 +27,6 @@
     margin: 0;
     width: 100%;
     height: 100%;
+    background: var(--background-primary)
   }
 </style>

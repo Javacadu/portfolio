@@ -1,0 +1,10 @@
+/* Global CSS custom properties (variables) for consistent theming across the site */
+/* Use them in any component with var(--variable-name) */
+
+:root {
+  /* Color palette */
+  --background-primary: #f1efe9;
+  --color-secondary: #beceb0;
+  --color-accent: #34857f;
+  --color-muted: #b0a48a;
+}

@@ -1,0 +1,25 @@
+---
+// Type import for the blog collection so Astro knows the shape of each post
+import type { CollectionEntry } from "astro:content";
+
+// This component expects a "post" prop that matches the "blog" collection schema
+type Props = { post: CollectionEntry<"blog"> };
+const { post } = Astro.props;
+---
+
+<!-- Renders one blog post preview card -->
+<article>
+  <h2>
+    <!-- Link to the full blog post page (URL will be /blog/post-id) -->
+    <a href={`/blog/${post.id}`}>
+      {post.data.title}
+    </a>
+  </h2>
+  <!-- Display the date in a human-readable format -->
+  <time datetime={post.data.date.toISOString()}>
+    {post.data.date.toLocaleDateString()}
+  </time>
+  <p>
+    {post.data.description}
+  </p>
+</article>

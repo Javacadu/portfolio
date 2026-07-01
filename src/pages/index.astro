@@ -7,8 +7,6 @@ import BlogCard from "../components/BlogCard.astro";
 
 // Fetch all blog posts from the content collection
 const posts = await getCollection("blog");
-// Sort by date descending (newest first)
-posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <HomePage>

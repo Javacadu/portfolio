@@ -1,19 +1,14 @@
-// Defines the "blog" content collection and the required frontmatter fields for each post
-// Every .md or .mdx file inside src/content/blog/ becomes a blog post entry
-
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
+import { z } from "astro/zod";
 
 const blog = defineCollection({
-  // Load all markdown/mdx files from the blog directory
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/blog" }),
-  // Schema enforces what frontmatter each post must (or can) have
+  loader: glob({ base: "./src/content/blog", pattern: "**/*.{md,mdx}" }),
   schema: z.object({
-    title: z.string(),       // Post title — required, must be text
-    date: z.string(),        // Publish date — required, must be text
-    description: z.string(), // Short excerpt shown on cards — required, must be text
+    title: z.string(),
+    date: z.coerce.date(),
+    description: z.string(),
   }),
 });
 
-// Export collections so Astro knows about them
 export const collections = { blog };
